@@ -6,16 +6,12 @@ year = '(' + input("Please, enter the year: <<-- ") + ')'
 
 url_id = f"https://imdb-api.com/en/API/SearchMovie/k_yo59xtic/{name} {year}"
 
-
 payload = {}
 headers = {}
 
 first_response = requests.request("GET", url_id, headers=headers, data=payload)
 
 data = first_response.json()
-
-movie_id = ''
-
 
 for element in data['results']:
     if element['title'] == name and element['description'] == year:
@@ -35,5 +31,3 @@ with open('query.txt', 'w') as file:
 os.system('mysql -u root --password=Healter666Skelter --database=MOVIES < query.txt')
 
 os.system('rm query.txt')
-
-
