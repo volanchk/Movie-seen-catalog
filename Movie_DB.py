@@ -34,4 +34,6 @@ with open('query.txt', 'w') as file:
 
 os.system('mysql -u root --password=Healter666Skelter --database=MOVIES < query.txt')
 
+os.system('rm query.txt')
+
 
